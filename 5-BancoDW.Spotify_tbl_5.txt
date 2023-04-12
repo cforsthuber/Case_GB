@@ -1,0 +1,19 @@
+  -- Consulta tabela 5 
+  -- name = Nome DO poscast. 
+  -- description = Descrição sobre o programa de poscast. 
+  -- id = Identificador único DO programa. 
+  -- total_episodes = Total de episódios lançados ATÉ o momento.
+
+SELECT
+  name,
+  description,
+  id,
+  total_episodes
+FROM
+  BancoDW.Spotify_tbl_5
+LIMIT
+  1000;
+SELECT
+  COUNT(*)
+FROM
+  BancoDW.Spotify_tbl_5

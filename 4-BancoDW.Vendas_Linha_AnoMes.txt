@@ -1,0 +1,12 @@
+-- Tabela 4: Consolidado de vendas por linha, ano e mês;
+CREATE TABLE
+   BancoDW.Vendas_Linha_AnoMes AS
+SELECT
+  LINHA,
+  FORMAT_DATE('%Y-%m',data_venda) AS AnoMes, 
+  SUM(QTD_VENDA) AS QTD_Vendas
+FROM
+  BancoDW.raw_vendas_dw
+GROUP BY
+  LINHA,
+  FORMAT_DATE('%Y-%m',data_venda);

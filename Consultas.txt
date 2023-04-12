@@ -1,0 +1,46 @@
+  -- Tabela 1: Consolidado de vendas por ano e mês;
+CREATE TABLE
+  BancoDW.Vendas_AnoMes AS
+SELECT
+  FORMAT_DATE('%Y-%m',data_venda) AS AnoMes,
+  SUM(QTD_VENDA) AS QTD_Vendas
+FROM
+  BancoDW.raw_vendas_dw
+GROUP BY
+  FORMAT_DATE('%Y-%m',data_venda);
+  -- Tabela 2: Consolidado de vendas por marca e linha;
+CREATE TABLE
+  BancoDW.Vendas_Marca_Linha AS
+SELECT
+  MARCA,
+  LINHA,
+  SUM(QTD_VENDA) AS QTD_Vendas
+FROM
+  BancoDW.raw_vendas_dw
+GROUP BY
+  MARCA,
+  LINHA;
+  -- Tabela 3: Consolidado de vendas por marca, ano e mês;
+CREATE TABLE
+  BancoDW.Vendas_Marca_AnoMes AS
+SELECT
+  MARCA,
+  FORMAT_DATE('%Y-%m',data_venda) AS AnoMes,
+  SUM(QTD_VENDA) AS QTD_Vendas
+FROM
+  BancoDW.raw_vendas_dw
+GROUP BY
+  MARCA,
+  FORMAT_DATE('%Y-%m',data_venda);
+  -- Tabela 4: Consolidado de vendas por linha, ano e mês;
+CREATE TABLE
+  BancoDW.Vendas_Linha_AnoMes AS
+SELECT
+  LINHA,
+  FORMAT_DATE('%Y-%m',data_venda) AS AnoMes,
+  SUM(QTD_VENDA) AS QTD_Vendas
+FROM
+  BancoDW.raw_vendas_dw
+GROUP BY
+  LINHA,
+  FORMAT_DATE('%Y-%m',data_venda);

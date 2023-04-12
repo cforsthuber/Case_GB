@@ -1,0 +1,12 @@
+-- Tabela 2: Consolidado de vendas por marca e linha;
+CREATE TABLE
+  BancoDW.Vendas_Marca_Linha AS
+SELECT
+  MARCA,
+  LINHA,
+  SUM(QTD_VENDA) AS QTD_Vendas
+FROM
+  BancoDW.raw_vendas_dw
+GROUP BY
+  MARCA,
+  LINHA

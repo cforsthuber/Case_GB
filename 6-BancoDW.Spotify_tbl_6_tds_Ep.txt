@@ -1,0 +1,23 @@
+-- Tabela 6: Resultado de todos os episódios.
+-- id - Identificação do episódio.
+-- name - Nome do episódio.
+-- description - Descrição do episódio.
+-- release_date - Data de lançamento do episódio.
+-- duration_ms - Duração em milissegundos do episódio.
+-- language - Idioma do episódio.
+-- explicit - Flag booleano se o episódio possui conteúdo explícito.
+-- type - O tipo de faixa de áudio (Ex: música / programa)
+
+SELECT
+  id,
+  name,
+  description,
+  release_date,
+  duration_ms,
+  LANGUAGE,
+  explicit,
+  type
+FROM
+  BancoDW.Spotify_tbl_6_tds_Ep
+LIMIT
+  1000;

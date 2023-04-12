@@ -1,0 +1,12 @@
+-- Tabela 3: Consolidado de vendas por marca, ano e mês;
+ CREATE TABLE
+   BancoDW.Vendas_Marca_AnoMes AS
+SELECT
+  MARCA,
+  FORMAT_DATE('%Y-%m',data_venda) AS AnoMes, 
+  SUM(QTD_VENDA) AS QTD_Vendas
+FROM
+  BancoDW.raw_vendas_dw
+GROUP BY
+  MARCA,
+  FORMAT_DATE('%Y-%m',data_venda);
